@@ -29,6 +29,75 @@ img {
 ================================================== */
 
 
+/* Slick Slider
+================================================== */
+.slick-arrow, 
+.slick-arrow:hover, 
+.slick-arrow:focus {
+    position: absolute;
+    margin-top: 0;
+    transform: translateY(-50%);
+    top: auto;
+    bottom: -20px;
+    background-color: transparent;
+    font-size: 0;
+    line-height: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    z-index: 100;
+    color: #000;
+}
+.slick-track{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.slick-prev { 
+	right: 45px !important; 
+}
+.slick-next { 
+	right: 0px !important;  
+}
+.slick-arrow:before {
+	font-family: ETmodules;
+	opacity: 1;
+	font-size: 32px;
+	vertical-align: middle;
+	text-align: center;
+}
+.slick-arrow:hover:before { 
+	opacity: 1; 
+}
+.slick-prev:before {
+	content: '\23'; 
+}
+.slick-next:before { 
+	content: '\24'; 
+}
+
+/* Scale img
+================================================== */
+.scale-img{
+    .et_pb_main_blurb_image{
+        img  {  
+            transition:all 0.5s; 
+            -moz-transition:all 0.5s; 
+            -webkit-transition:all 0.5s; 
+            &:hover{
+                transform:scale(1.1);
+                -moz-transform: scale(1.1);
+                -webkit-transform:scale(1.1);
+            }
+        }
+        .et_pb_image_wrap{
+        overflow: hidden;
+        }
+    }
+}
+
+
 /* Responsive
 ================================================== */
 @media screen and (max-width: 980px) {
