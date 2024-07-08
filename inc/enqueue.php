@@ -1,5 +1,4 @@
 <?php
-
 /* Enqueue files
 ================================================== */
 function seod_enqueue_files() {

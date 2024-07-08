@@ -76,7 +76,7 @@ add_action('wp_before_admin_bar_render', 'seod_admin_bar', 0);
 /* Admin footer text
 ================================================== */
 function seod_admin_footer() {
-  echo 'Webbplats producerad av <a href="//seodesign.se/" target="_blank" rel="noopener noreferrer">SEO DESIGN</a>';
+  echo 'Webbplats producerad av <a href="https://seodesign.se/" target="_blank" rel="noopener noreferrer">SEO DESIGN</a>';
 }
 add_filter('admin_footer_text', 'seod_admin_footer');
 
