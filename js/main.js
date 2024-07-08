@@ -1,1 +1,7 @@
-jQuery(document).ready(function(){});
+var $jq = jQuery.noConflict();
+$jq(document).ready(function() {
+    
+    /* Element
+    ================================================== */
+
+});
