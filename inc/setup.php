@@ -96,3 +96,14 @@ function seod_remove_version( $src ) {
 }
 add_filter( 'style_loader_src', 'seod_remove_version', 9999 );
 add_filter( 'script_loader_src', 'seod_remove_version', 9999 );
+
+
+/* Remove Optimize from WP Rocket warnings
+================================================== */
+function remove_wp_optimize_from_rocket_warning( $plugins ) {
+  if ( isset( $plugins['wp-optimize'] ) ) {
+    unset( $plugins['wp-optimize'] );
+  }
+    return $plugins;
+  }
+  add_filter( 'rocket_plugins_to_deactivate', 'remove_wp_optimize_from_rocket_warning');
