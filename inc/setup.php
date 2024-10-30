@@ -97,7 +97,6 @@ function seod_remove_version( $src ) {
 add_filter( 'style_loader_src', 'seod_remove_version', 9999 );
 add_filter( 'script_loader_src', 'seod_remove_version', 9999 );
 
-
 /* Remove Optimize from WP Rocket warnings
 ================================================== */
 function remove_wp_optimize_from_rocket_warning( $plugins ) {
@@ -106,4 +105,16 @@ function remove_wp_optimize_from_rocket_warning( $plugins ) {
   }
     return $plugins;
   }
-  add_filter( 'rocket_plugins_to_deactivate', 'remove_wp_optimize_from_rocket_warning');
+add_filter( 'rocket_plugins_to_deactivate', 'remove_wp_optimize_from_rocket_warning');
+
+/* Fix unstyled page load
+================================================== */
+add_action('wp_head', 'seod_divi_page_load');
+function seod_divi_page_load(){ ?>
+<script type="text/javascript">
+  var elm=document.getElementsByTagName("html")[0];
+  elm.style.display="none";
+  document.addEventListener("DOMContentLoaded",function(event) {elm.style.display="block"; });
+</script>
+<?php
+}
