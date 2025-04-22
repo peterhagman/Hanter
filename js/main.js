@@ -1,5 +1,6 @@
-var $jq = jQuery.noConflict();
-$jq(document).ready(function() {
+//var $jq = jQuery.noConflict();
+jQuery(document).ready(function() {
+    
     
     /* Accordion
     ================================================== */
@@ -25,5 +26,39 @@ $jq(document).ready(function() {
             $this.closest('.et_pb_accordion').removeClass('et_pb_accordion_toggling');
         },700);
     });
+
+
+    /* Structured data FAQ (Accordion)
+    ================================================== */
+    var $accordion = jQuery('#faq');
+    if ($accordion.length === 0) return;
+    var faq_data = [];
+    $accordion.find('.et_pb_accordion_item').each(function() {
+        var $item = jQuery(this);
+        var question = $item.find('.et_pb_toggle_title').text().trim();
+        var answer = $item.find('.et_pb_toggle_content').text().trim();
+        if (question && answer) {
+            faq_data.push({
+                "@type": "Question",
+                "name": question,
+                "acceptedAnswer": {
+                "@type": "Answer",
+                "text": answer
+                }
+            });
+        }
+    });
+    if (faq_data.length > 0) {
+        var schema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faq_data
+        };
+        var script_tag = jQuery('<script>', {
+            type: 'application/ld+json',
+            text: JSON.stringify(schema)
+        });
+        jQuery('head').append(script_tag);
+    }
 
 });
