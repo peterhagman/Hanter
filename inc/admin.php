@@ -1,0 +1,68 @@
+<?php
+
+/* Style WP login page
+================================================== */
+function seod_admin_login() { ?>
+    <style type="text/css">
+      body.login {
+        background-color: #e2e2e2;
+      }
+      #login h1 a, .login h1 a {
+        background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/logotype.png') !important;
+        background-position: center !important;
+        -webkit-background-size: contain !important;
+        -moz-background-size: contain !important;
+        -o-background-size: contain !important;
+        background-size: contain !important;
+        width: 250px !important;
+        height: 140px !important;
+      }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'seod_admin_login' );
+
+/* Change logo link on WP login page
+================================================== */
+function seod_admin_logotype_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'seod_admin_logotype_url' );
+
+/* Change WP admin footer text
+================================================== */
+function seod_admin_footer() {
+    echo 'Webbplats producerad av <a href="https://seodesign.se/" target="_blank" rel="noopener noreferrer">SEO DESIGN</a>';
+}
+add_filter('admin_footer_text', 'seod_admin_footer');
+  
+/* Remove Divi projects form WP admin
+================================================== */
+// function seod_remove_project_posttype( $args ) {
+// 	return array_merge( $args, array(
+// 		'public'              => false,
+// 		'exclude_from_search' => false,
+// 		'publicly_queryable'  => false,
+// 		'show_in_nav_menus'   => false,
+// 		'show_ui'             => false
+// 	));
+// }
+// add_filter( 'et_project_posttype_args', 'seod_remove_project_posttype', 10, 1 );
+
+/* Edit WP admin menu
+================================================== */
+// function seod_admin_menu(){
+//     remove_menu_page( 'edit.php' );
+//     remove_menu_page( 'edit-comments.php' );
+//     remove_menu_page( 'yikes-woo-settings' );
+// }
+// add_action( 'admin_menu', 'seod_admin_menu' );
+  
+/* Edit WP admin bar
+================================================== */
+// function seod_admin_bar() {
+//     global $wp_admin_bar;
+//     $wp_admin_bar->remove_menu('wp-logo');
+//     $wp_admin_bar->remove_menu('comments');
+//     $wp_admin_bar->remove_menu('new-content');
+// }
+// add_action('wp_before_admin_bar_render', 'seod_admin_bar', 0);
