@@ -60,10 +60,10 @@ function seod_shortcode_pll_string( $atts ) {
   }
 
   if ( function_exists( 'pll__' ) ) {
-    return esc_html( pll__( $atts['default'] ) );
+    return wp_kses_post( pll__( $atts['default'] ) );
   }
 
-  return esc_html( $atts['default'] );
+  return wp_kses_post( $atts['default'] );
 }
 add_shortcode( 'pll_string', 'seod_shortcode_pll_string' );
 
