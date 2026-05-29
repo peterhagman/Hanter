@@ -15,5 +15,6 @@ function seod_theme_setup() {
   require_once($dir_inc . '/admin.php');
   require_once($dir_inc . '/security.php');
   require_once($dir_inc . '/performance.php');
+  require_once($dir_inc . '/functionality.php');
 }
 add_action('after_setup_theme', 'seod_theme_setup');

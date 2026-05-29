@@ -19,10 +19,18 @@ jQuery(document).ready(function() {
     });
     jQuery('.et_pb_accordion .et_pb_toggle_open').addClass('et_pb_toggle_close').removeClass('et_pb_toggle_open');
     jQuery('.et_pb_accordion .et_pb_toggle').click(function() {
-        $this = $(this);
+        $this = jQuery(this);
         setTimeout(function(){
             $this.closest('.et_pb_accordion').removeClass('et_pb_accordion_toggling');
         },700);
+    });
+
+
+    /* Mobile menu toggle
+    ================================================== */
+    jQuery(document).on('click', '.menu-toggle', function() {
+        jQuery(this).toggleClass('active');
+        jQuery(this).parent().find('ul.sub-menu').first().toggleClass('open');
     });
 
 
